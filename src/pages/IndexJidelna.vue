@@ -248,8 +248,14 @@
           p.text-center.gekon-counter-s Výdejních terminálů
     page-section
       h2 Fotky stravovacího systému
-
-      jidelna-gallery
+    .row.q-mt-xs
+      .col
+        q-tabs(:vertical="$q.screen.lt.sm" v-model="activeTab" inline-label no-caps class="jidelna-primary" active-color="jidelna-blue" indicator-color="jidelna-blue")
+          q-tab(name="int-obj" label="Internetové objednávky" icon="eva-edit-2-outline").q-mx-sm
+          q-tab(name="jid-sql" label="JídelnaSQL" icon="eva-calendar-outline").q-mx-sm
+          q-tab(name="obj-ter" label="Objednávkový terminál" icon="eva-credit-card-outline").q-mx-sm
+          q-tab(name="vyd-ter" label="Výdejní terminál" icon="eva-file-text-outline").q-mx-sm
+      //      jidelna-gallery
 
 
     page-section(v-if="false")
