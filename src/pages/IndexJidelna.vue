@@ -261,17 +261,17 @@
               q-tab-panel(name='internetoveobj')
                 .text-h6 Internetové objednávky
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                JgalleryInternet
+                jidelna-gallery
               q-tab-panel(name='jidelnasql')
-                .text-h6 Alarms
+                .text-h6 JídelnaSQL
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery
               q-tab-panel(name='objednavkovyterminal')
-                .text-h6 Movies
+                .text-h6 Objednávkový terminál
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery
               q-tab-panel(name='vydejniterminal')
-                .text-h6 Movies
+                .text-h6 Výdejní terminál
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery
 
@@ -364,7 +364,6 @@ import CarouselContent from 'components/CarouselContent'
 import PageSectionDoubleCard from 'components/PageSectionDoubleCard'
 import ReferenceCard from 'components/ReferenceCard'
 import JidelnaGallery from 'components/JidelnaGallery'
-import JGalleryInternet from 'components/JgalleryInternet'
 import JidelnaSectionDoubleCard from 'components/JidelnaSectionDoubleCard'
 import JidelnaFormular from '../components/Formular'
 import PageSection from 'components/PageSection'
