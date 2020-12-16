@@ -247,57 +247,33 @@
             animated-number(:number="182" :time="1200" :restart="true")
           p.text-center.gekon-counter-s Výdejních terminálů
     page-section
+      h2 Fotky stravovacího systému
       .q-pa-md
-        .q-gutter-y-md(style='max-width: 600px')
+        .q-gutter-y-md()
           q-card
-            q-tabs.text-grey(v-model='tab' no-caps class="primary" active-color='accent' indicator-color='accent' align='justify' narrow-indicator='')
-              q-tab(name='mails' label='Mails')
-              q-tab(name='alarms' label='Alarms')
-              q-tab(name='movies' label='Movies')
+            q-tabs.text-primary(v-model='tab' no-caps class='md-md' active-color='accent' indicator-color='accent')
+              q-tab(name='internetoveobj' label='Internetové objednávky')
+              q-tab(name='jidelnasql' label='JídelnaSQL')
+              q-tab(name='objednavkovyterminal' label='Objednávkový terminál')
+              q-tab(name='vydejniterminal' label='Výdejní terminál')
             q-separator
             q-tab-panels(v-model='tab' animated='')
-              q-tab-panel(name='mails')
-                .text-h6 Mails
-                |             Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              q-tab-panel(name='alarms')
+              q-tab-panel(name='internetoveobj')
+                .text-h6 Internetové objednávky
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                JgalleryInternet
+              q-tab-panel(name='jidelnasql')
                 .text-h6 Alarms
-                |             Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              q-tab-panel(name='movies')
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                jidelna-gallery
+              q-tab-panel(name='objednavkovyterminal')
                 .text-h6 Movies
-                |             Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
-          //  page-section
-              h2 Fotky stravovacího systému
-            .row.q-mt-xs
-              .col
-              q-card
-                q-tabs(
-                  v-model="activeTab"
-                  inline-label
-                  narrow-indicator
-                  no-caps
-                  class="primary"
-                  active-color="accent"
-                  indicator-color="accent"
-                  )
-                  q-tab(name="intObj" label="Internetové objednávky" icon="eva-globe-outline").q-mx-sm
-                  q-tab(name="jidSql" label="JídelnaSQL" icon="eva-info-outline").q-mx-sm
-                  q-tab(name="objTer" label="Objednávkový terminál" icon="eva-shopping-cart-outline").q-mx-sm
-                  q-tab(name="vydTer" label="Výdejní terminál" icon="eva-clipboard-outline").q-mx-sm
-                    q-separator
-                      q-tab-panels(v-model='tab' animated='')
-                        q-tab-panel(name='intObj')
-                          .text-h6 Mails
-                          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        q-tab-panel(name='jidSql')
-                          .text-h6 Alarms
-                          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        q-tab-panel(name='objTer')
-                          .text-h6 Movies
-                          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        q-tab-panel(name='vydTer')
-                          .text-h6 Movies
-                          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                jidelna-gallery
+              q-tab-panel(name='vydejniterminal')
+                .text-h6 Movies
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                jidelna-gallery
 
 
 
@@ -388,6 +364,7 @@ import CarouselContent from 'components/CarouselContent'
 import PageSectionDoubleCard from 'components/PageSectionDoubleCard'
 import ReferenceCard from 'components/ReferenceCard'
 import JidelnaGallery from 'components/JidelnaGallery'
+import JGalleryInternet from 'components/JgalleryInternet'
 import JidelnaSectionDoubleCard from 'components/JidelnaSectionDoubleCard'
 import JidelnaFormular from '../components/Formular'
 import PageSection from 'components/PageSection'
@@ -418,7 +395,7 @@ export default {
     return {
       slide: '1',
       slideReferences: '1',
-      tab: 'mails'
+      tab: 'internetoveobj'
     }
   },
 
