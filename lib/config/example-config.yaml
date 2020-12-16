@@ -1,0 +1,10 @@
+chars:
+  en: "\n"
+  er: "\r"
+  ener: "\n\r"
+  ener2: "\n\r\r\n"
+  password: secret
+deep:
+  is:
+    deep:
+      password: secret

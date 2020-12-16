@@ -1,0 +1,7 @@
+type: md
+description: Example block
+traslateable: true
+content: |-
+  This is some nice content...
+en: y
+sk: x
