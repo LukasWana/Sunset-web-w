@@ -250,11 +250,21 @@
       h2 Fotky stravovacího systému
     .row.q-mt-xs
       .col
-        q-tabs(:vertical="$q.screen.lt.sm" v-model="activeTab" inline-label no-caps class="jidelna-primary" active-color="jidelna-blue" indicator-color="jidelna-blue")
+        q-tabs(
+          v-model="activeTab"
+          inline-label
+          narrow-indicator
+          no-caps
+          class="primary"
+          active-color="accent"
+          indicator-color="accent"
+          )
           q-tab(name="int-obj" label="Internetové objednávky" icon="eva-edit-2-outline").q-mx-sm
           q-tab(name="jid-sql" label="JídelnaSQL" icon="eva-calendar-outline").q-mx-sm
           q-tab(name="obj-ter" label="Objednávkový terminál" icon="eva-credit-card-outline").q-mx-sm
           q-tab(name="vyd-ter" label="Výdejní terminál" icon="eva-file-text-outline").q-mx-sm
+
+
       //      jidelna-gallery
 
 
@@ -374,7 +384,8 @@ export default {
   data () {
     return {
       slide: '1',
-      slideReferences: '1'
+      slideReferences: '1',
+      tab: 'int-obj'
     }
   },
 
