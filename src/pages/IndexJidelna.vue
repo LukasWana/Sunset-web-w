@@ -247,25 +247,58 @@
             animated-number(:number="182" :time="1200" :restart="true")
           p.text-center.gekon-counter-s Výdejních terminálů
     page-section
-      h2 Fotky stravovacího systému
-    .row.q-mt-xs
-      .col
-        q-tabs(
-          v-model="activeTab"
-          inline-label
-          narrow-indicator
-          no-caps
-          class="primary"
-          active-color="accent"
-          indicator-color="accent"
-          )
-          q-tab(name="int-obj" label="Internetové objednávky" icon="eva-edit-2-outline").q-mx-sm
-          q-tab(name="jid-sql" label="JídelnaSQL" icon="eva-calendar-outline").q-mx-sm
-          q-tab(name="obj-ter" label="Objednávkový terminál" icon="eva-credit-card-outline").q-mx-sm
-          q-tab(name="vyd-ter" label="Výdejní terminál" icon="eva-file-text-outline").q-mx-sm
+      .q-pa-md
+        .q-gutter-y-md(style='max-width: 600px')
+          q-card
+            q-tabs.text-grey(v-model='tab' no-caps class="primary" active-color='accent' indicator-color='accent' align='justify' narrow-indicator='')
+              q-tab(name='mails' label='Mails')
+              q-tab(name='alarms' label='Alarms')
+              q-tab(name='movies' label='Movies')
+            q-separator
+            q-tab-panels(v-model='tab' animated='')
+              q-tab-panel(name='mails')
+                .text-h6 Mails
+                |             Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              q-tab-panel(name='alarms')
+                .text-h6 Alarms
+                |             Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              q-tab-panel(name='movies')
+                .text-h6 Movies
+                |             Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
+          //  page-section
+              h2 Fotky stravovacího systému
+            .row.q-mt-xs
+              .col
+              q-card
+                q-tabs(
+                  v-model="activeTab"
+                  inline-label
+                  narrow-indicator
+                  no-caps
+                  class="primary"
+                  active-color="accent"
+                  indicator-color="accent"
+                  )
+                  q-tab(name="intObj" label="Internetové objednávky" icon="eva-globe-outline").q-mx-sm
+                  q-tab(name="jidSql" label="JídelnaSQL" icon="eva-info-outline").q-mx-sm
+                  q-tab(name="objTer" label="Objednávkový terminál" icon="eva-shopping-cart-outline").q-mx-sm
+                  q-tab(name="vydTer" label="Výdejní terminál" icon="eva-clipboard-outline").q-mx-sm
+                    q-separator
+                      q-tab-panels(v-model='tab' animated='')
+                        q-tab-panel(name='intObj')
+                          .text-h6 Mails
+                          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        q-tab-panel(name='jidSql')
+                          .text-h6 Alarms
+                          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        q-tab-panel(name='objTer')
+                          .text-h6 Movies
+                          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        q-tab-panel(name='vydTer')
+                          .text-h6 Movies
+                          | Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
-      //      jidelna-gallery
 
 
     page-section(v-if="false")
@@ -385,7 +418,7 @@ export default {
     return {
       slide: '1',
       slideReferences: '1',
-      tab: 'int-obj'
+      tab: 'mails'
     }
   },
 
