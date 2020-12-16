@@ -251,7 +251,7 @@
       .q-pa-md
         .q-gutter-y-md()
           q-card
-            q-tabs.text-primary(v-model='tab' no-caps class='md-md' active-color='accent' indicator-color='accent')
+            q-tabs.some-div.text-primary(v-model='tab' no-caps class='md-md' active-color='accent' indicator-color='accent')
               q-tab(name='internetoveobj' label='Internetové objednávky')
               q-tab(name='jidelnasql' label='JídelnaSQL')
               q-tab(name='objednavkovyterminal' label='Objednávkový terminál')
@@ -355,6 +355,10 @@ ul
     padding-left: 1.3em;
     text-indent: -1.3em;
     margin-bottom 13px
+
+.some-div
+  font-size 25px
+  font-weight bold
 
 </style>
 
