@@ -221,7 +221,7 @@
           template
             | Data jsou každý den automaticky zálohována, umístění zálohy může být na vašem zařízení v rámci sítě nebo na internetovém úložišti.
 
-    page-section.text-center.q-mt-xl
+    //page-section.text-center.q-mt-xl
       div.alt-bg.q-py-xl
         h2.alt-reset-m-p Ke stažení
         p Jídelnu SQL můžete ve variantě LITE používat zdarma. Využijte náš instalátor pro malé provozy.
