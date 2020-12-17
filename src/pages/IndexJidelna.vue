@@ -259,20 +259,20 @@
             q-separator
             q-tab-panels(v-model='tab' animated='')
               q-tab-panel(name='internetoveobj')
-                .text-h6 Internetové objednávky
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                //.text-h6 Internetové objednávky
+                //| Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery(:images="imagesInternet")
               q-tab-panel(name='jidelnasql')
-                .text-h6 JídelnaSQL
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                //.text-h6 JídelnaSQL
+                //| Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery(:images="imagesJidelna")
               q-tab-panel(name='objednavkovyterminal')
-                .text-h6 Objednávkový terminál
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                //.text-h6 Objednávkový terminál
+                //| Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery(:images="imagesObjednavkovy")
               q-tab-panel(name='vydejniterminal')
-                .text-h6 Výdejní terminál
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                //.text-h6 Výdejní terminál
+                //| Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery(:images="imagesVydej")
 
 
