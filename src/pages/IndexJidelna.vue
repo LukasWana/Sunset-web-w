@@ -261,16 +261,16 @@
               q-tab-panel(name='internetoveobj')
                 .text-h6 Internetové objednávky
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                jidelna-gallery
+                jidelna-gallery(:images="imagesInternet")
               q-tab-panel(name='jidelnasql')
                 .text-h6 JídelnaSQL
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                jidelna-gallery
-              q-tab-panel(name='objednavkovyterminal')
+                jidelna-gallery(:images="imagesBla")
+              // q-tab-panel(name='objednavkovyterminal')
                 .text-h6 Objednávkový terminál
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery
-              q-tab-panel(name='vydejniterminal')
+              // q-tab-panel(name='vydejniterminal')
                 .text-h6 Výdejní terminál
                 | Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 jidelna-gallery
@@ -370,6 +370,8 @@ import PageSection from 'components/PageSection'
 import PageSectionCard from 'components/PageSectionCard'
 import LayoutFooter from 'layouts/LayoutFooter'
 
+
+
 export default {
   name: 'PageIndex',
 
@@ -394,7 +396,17 @@ export default {
     return {
       slide: '1',
       slideReferences: '1',
-      tab: 'internetoveobj'
+      tab: 'internetoveobj',
+      imagesInternet: [
+        { src: 'statics/galerie/int-obj/1_objednavka.png', alt: 'Titulní obrazovka', thumbnail: null },
+        { src: 'statics/galerie/int-obj/2_prehled.PNG', alt: 'Jídelníček', thumbnail: null },
+        { src: 'statics/galerie/int-obj/3_finance.png', alt: 'Evidence strávníků', thumbnail: null },
+        { src: 'statics/galerie/int-obj/4_maily.png', alt: 'Platby', thumbnail: null }
+      ],
+      imagesBla: [
+        { src: 'statics/galerie/int-obj/3_finance.png', alt: 'Evidence strávníků', thumbnail: null },
+        { src: 'statics/galerie/int-obj/4_maily.png', alt: 'Platby', thumbnail: null }
+      ]
     }
   },
 
