@@ -227,6 +227,67 @@
         p Jídelnu SQL můžete ve variantě LITE používat zdarma. Využijte náš instalátor pro malé provozy.
         q-btn(rounded no-caps label="Stáhnout zdarma" size="lg" @click="login").q-px-xl.q-mb-lg.gekon-btn
 
+
+    page-section
+      .cenareseni
+        h2.text-center Cena řešení
+        .text-h6.text-center Potřebujete evidovat strávníky, přihlášky a platby za stravu?
+      .flex.justify-center(:class="{'q-gutter-lg': !$q.screen.lt.sm}")
+
+        jidelna-section-price-card
+            h3 verze LITE
+            div.alt-cena 300 Kč
+              p #[small bez DPH/měsíc]
+            div.text-center.ulli
+              br
+              | Evidence 50ti strávníků.
+              p
+              | Plná verze software.
+              p
+              | Podpora našich techniků zdarma.
+              p
+              | Upgrade programu zdarma.
+              p
+              |
+              br
+              q-btn(outline color='primary', icon='check', label='Objednat', @click='onClick')
+
+        jidelna-section-price-card
+            h3 verze pro Školy
+            div.alt-cena 1 100 Kč
+              p #[small bez DPH/měsíc]
+            div.text-center.ulli
+              br
+              | Evidence bez omezení.
+              p
+              | Plná verze software.
+              p
+              | Podpora našich techniků zdarma.
+              p
+              | Upgrade programu zdarma.
+              p
+              |
+              br
+              q-btn(outline color='primary', icon='check', label='Objednat', @click='onClick')
+
+        jidelna-section-price-card
+            h3 verze pro Komerci
+            div.alt-cena 2 000 Kč
+              p #[small bez DPH/měsíc]
+            div.text-center.ulli
+              br
+              | Napojení na EET.
+              p
+              | Plná verze software.
+              p
+              | Podpora našich techniků zdarma.
+              p
+              | Upgrade programu zdarma.
+              p
+              |
+              br
+              q-btn(outline color='primary', icon='check', label='Objednat', @click='onClick')
+
     page-section
       h2 Realizovaná řešení
       .row.gekon-btn
@@ -290,6 +351,9 @@
 </template>
 
 <style scoped lang="stylus">
+.cenareseni
+  margin 0px 0px 20px 0px
+
 .alt-grey-bg
   background-color #F6F6F6
 
@@ -329,13 +393,20 @@
   padding 0
 
 .alt-cena
-  color $gekon-primary
+  color $primary
   font-size 26px
   font-weight bold
 
 h2
   text-align center
   margin 50px 0 20px 0
+  padding 0
+
+h3
+  font-size 26px
+  color $accent
+  text-align center
+  margin 0px 0 30px 0
   padding 0
 
 .page-section-ourstory
@@ -365,6 +436,7 @@ import PageSectionDoubleCard from 'components/PageSectionDoubleCard'
 import ReferenceCard from 'components/ReferenceCard'
 import JidelnaGallery from 'components/JidelnaGallery'
 import JidelnaSectionDoubleCard from 'components/JidelnaSectionDoubleCard'
+import JidelnaSectionPriceCard from 'components/JidelnaSectionPriceCard'
 import JidelnaFormular from '../components/Formular'
 import PageSection from 'components/PageSection'
 import PageSectionCard from 'components/PageSectionCard'
@@ -383,6 +455,7 @@ export default {
     JidelnaGallery,
     AnimatedNumber,
     JidelnaSectionDoubleCard,
+    JidelnaSectionPriceCard,
     ReferenceCard,
     CarouselContent,
     PageSectionDoubleCard,
