@@ -287,8 +287,8 @@
               |
               br
               router-link(:to="{ hash: '#Formular' }")
-              template(v-slot='props')
-                q-btn(v-bind='buttonProps(props)' outline color='primary', icon='check', label='Objednat', @click='onClick')
+                template(v-slot='props')
+                  q-btn(v-bind="buttonProps(props)" outline color='primary', icon='check', label='Objednat')
 
     page-section
       h2 Realizovaná řešení
@@ -363,8 +363,9 @@
             | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
             | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
 
+    // sem by to melo scrolovat bud na ID nebo #
     #Formular
-    page-section(v-if="false")
+    page-section(v-if="false" id="Formular")
       h2.text-center Cenový kalkulátor
       cenovy-kalkulator
 
