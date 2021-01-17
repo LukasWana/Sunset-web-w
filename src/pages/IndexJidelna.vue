@@ -307,6 +307,7 @@
           h2.gekon-counter-b
             animated-number(:number="182" :time="1200" :restart="true")
           p.text-center.gekon-counter-s Výdejních terminálů
+
     page-section
       h2 Fotky stravovacího systému
       .q-pa-md
@@ -328,7 +329,37 @@
               q-tab-panel(name='vydejniterminal')
                 jidelna-gallery(:images="imagesVydej")
 
+    page-section
+      .cenareseni
+        h2.text-center Výběr z blogu
+      .flex.justify-center(:class="{'q-gutter-lg': !$q.screen.lt.sm}")
 
+        jidelna-section-blog-card
+          q-img(src='https://blog.altisima.cz/content/images/2021/01/shutterstock_122391511.jpg' basic='')
+            .absolute-bottom.text-h6
+              | Jak šel čas s JídelnouSQL
+          q-card-section
+            | Na počátku byla Jídelna. Program, který nad tabulkami databáze Paradox začal řešit evidenci strávníků,
+            | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
+            | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
+
+        jidelna-section-blog-card
+          q-img(src='https://blog.altisima.cz/content/images/2021/01/shutterstock_122391511.jpg' basic='')
+            .absolute-bottom.text-h6
+              | Jak šel čas s JídelnouSQL
+          q-card-section
+            | Na počátku byla Jídelna. Program, který nad tabulkami databáze Paradox začal řešit evidenci strávníků,
+            | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
+            | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
+
+        jidelna-section-blog-card
+          q-img(src='https://blog.altisima.cz/content/images/2021/01/shutterstock_122391511.jpg' basic='')
+            .absolute-bottom.text-h6
+              | Jak šel čas s JídelnouSQL
+          q-card-section
+            | Na počátku byla Jídelna. Program, který nad tabulkami databáze Paradox začal řešit evidenci strávníků,
+            | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
+            | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
 
     page-section(v-if="false")
       h2.text-center Cenový kalkulátor
@@ -429,6 +460,7 @@ import ReferenceCard from 'components/ReferenceCard'
 import JidelnaGallery from 'components/JidelnaGallery'
 import JidelnaSectionDoubleCard from 'components/JidelnaSectionDoubleCard'
 import JidelnaSectionPriceCard from 'components/JidelnaSectionPriceCard'
+import JidelnaSectionBlogCard from 'components/JidelnaSectionBlogCard'
 import JidelnaFormular from '../components/Formular'
 import PageSection from 'components/PageSection'
 import PageSectionCard from 'components/PageSectionCard'
@@ -448,6 +480,7 @@ export default {
     AnimatedNumber,
     JidelnaSectionDoubleCard,
     JidelnaSectionPriceCard,
+    JidelnaSectionBlogCard,
     ReferenceCard,
     CarouselContent,
     PageSectionDoubleCard,
