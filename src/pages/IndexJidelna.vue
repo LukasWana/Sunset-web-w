@@ -287,8 +287,8 @@
               |
               br
               router-link(:to="{ hash: '#Formular' }")
-              //template(v-slot='props')
-              q-btn(v-bind='buttonProps(props)' outline color='primary', icon='check', label='Objednat', @click='onClick')
+              template(v-slot='props')
+                q-btn(v-bind='buttonProps(props)' outline color='primary', icon='check', label='Objednat', @click='onClick')
 
     page-section
       h2 Realizovaná řešení
@@ -476,38 +476,6 @@ export default {
     title: 'JidelnaSQL'
   },
 
-  // script pro scrolling
-  methods: {
-  linkClick (e, go) {
-    e.navigate = false // we choose when we navigate
-
-    // console.log('triggering navigation in 3s')
-    setTimeout(() => {
-      // console.log('navigating as promised 3s ago')
-      go()
-    }, 3000)
-  },
-
-  buttonProps ({ href, route, isActive, isExactActive }) {
-    const props = {
-      color: 'black',
-      noCaps: true,
-      label: `To "${route.fullPath}"`,
-      outline: true,
-      to: href
-    }
-
-    if (isActive === true) {
-      props.color = isExactActive === true ? 'primary' : 'amber-9'
-    }
-    else {
-      props.color = 'black'
-    }
-
-    return props
-  }
-},
-
   components: {
     JidelnaGallery,
     AnimatedNumber,
@@ -557,6 +525,35 @@ export default {
   methods: {
     login () {
       window.location.href = 'https://gekon.altisima.cz'
+    },
+
+    // script pro scrolling
+    linkClick (e, go) {
+      e.navigate = false // we choose when we navigate
+
+      // console.log('triggering navigation in 3s')
+      setTimeout(() => {
+        // console.log('navigating as promised 3s ago')
+        go()
+      }, 3000)
+    },
+
+    buttonProps ({ href, route, isActive, isExactActive }) {
+      const props = {
+        color: 'black',
+        noCaps: true,
+        label: `To "${route.fullPath}"`,
+        outline: true,
+        to: href
+      }
+
+      if (isActive === true) {
+        props.color = isExactActive === true ? 'primary' : 'amber-9'
+      } else {
+        props.color = 'black'
+      }
+
+      return props
     }
   }
 
