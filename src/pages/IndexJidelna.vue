@@ -286,7 +286,9 @@
               p
               |
               br
-              q-btn(outline color='primary', icon='check', label='Objednat', @click='onClick')
+              router-link(:to="{ hash: '#Formular' }")
+              //template(v-slot='props')
+              q-btn(v-bind='buttonProps(props)' outline color='primary', icon='check', label='Objednat', @click='onClick')
 
     page-section
       h2 Realizovaná řešení
@@ -361,6 +363,7 @@
             | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
             | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
 
+    #Formular
     page-section(v-if="false")
       h2.text-center Cenový kalkulátor
       cenovy-kalkulator
@@ -466,14 +469,44 @@ import PageSection from 'components/PageSection'
 import PageSectionCard from 'components/PageSectionCard'
 import LayoutFooter from 'layouts/LayoutFooter'
 
-
-
 export default {
   name: 'PageIndex',
 
   meta: {
     title: 'JidelnaSQL'
   },
+
+  // script pro scrolling
+  methods: {
+  linkClick (e, go) {
+    e.navigate = false // we choose when we navigate
+
+    // console.log('triggering navigation in 3s')
+    setTimeout(() => {
+      // console.log('navigating as promised 3s ago')
+      go()
+    }, 3000)
+  },
+
+  buttonProps ({ href, route, isActive, isExactActive }) {
+    const props = {
+      color: 'black',
+      noCaps: true,
+      label: `To "${route.fullPath}"`,
+      outline: true,
+      to: href
+    }
+
+    if (isActive === true) {
+      props.color = isExactActive === true ? 'primary' : 'amber-9'
+    }
+    else {
+      props.color = 'black'
+    }
+
+    return props
+  }
+},
 
   components: {
     JidelnaGallery,
