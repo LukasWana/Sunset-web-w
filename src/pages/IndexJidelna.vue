@@ -250,7 +250,7 @@
               p
               |
               br
-              q-btn(outline color='primary', icon='check', label='Objednat', @click='onClick')
+              q-btn(outline color='primary', icon='check', label='Objednat', @click='scrollToObjednat')
 
         jidelna-section-price-card
             h3 verze pro Školy
@@ -268,7 +268,7 @@
               p
               |
               br
-              q-btn(outline color='primary', icon='check', label='Objednat', @click='onClick')
+              q-btn(outline color='primary', icon='check', label='Objednat', @click='scrollToObjednat')
 
         jidelna-section-price-card
             h3 verze pro Komerci
@@ -286,9 +286,7 @@
               p
               |
               br
-              router-link(:to="{ hash: '#Formular' }")
-                template(v-slot='props')
-                  q-btn(v-bind="buttonProps(props)" outline color='primary', icon='check', label='Objednat')
+              q-btn(outline color='primary', icon='check', label='Objednat' @click="scrollToObjednat")
 
     page-section
       h2 Realizovaná řešení
@@ -363,13 +361,8 @@
             | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
             | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
 
-    // sem by to melo scrolovat bud na ID nebo #
-    #Formular
-    page-section(v-if="false" id="Formular")
-      h2.text-center Cenový kalkulátor
-      cenovy-kalkulator
 
-    page-section
+    page-section(ref="formular")
       .row.justify-center.page-section-ourstory
         .col-xs-12.col-sm-8.col-md-6.q-px-md.q-mb-xl
           h2.text-center Kontaktujte nás
@@ -470,6 +463,9 @@ import PageSection from 'components/PageSection'
 import PageSectionCard from 'components/PageSectionCard'
 import LayoutFooter from 'layouts/LayoutFooter'
 
+import { scroll } from 'quasar'
+const { setScrollPosition, getScrollTarget } = scroll
+
 export default {
   name: 'PageIndex',
 
@@ -528,33 +524,15 @@ export default {
       window.location.href = 'https://gekon.altisima.cz'
     },
 
-    // script pro scrolling
-    linkClick (e, go) {
-      e.navigate = false // we choose when we navigate
-
-      // console.log('triggering navigation in 3s')
-      setTimeout(() => {
-        // console.log('navigating as promised 3s ago')
-        go()
-      }, 3000)
-    },
-
-    buttonProps ({ href, route, isActive, isExactActive }) {
-      const props = {
-        color: 'black',
-        noCaps: true,
-        label: `To "${route.fullPath}"`,
-        outline: true,
-        to: href
-      }
-
-      if (isActive === true) {
-        props.color = isExactActive === true ? 'primary' : 'amber-9'
-      } else {
-        props.color = 'black'
-      }
-
-      return props
+    scrollToObjednat () {
+      // console.log('objednat clicked')
+      // console.log({ 'this.$refs': this.$refs })
+      const el = this.$refs.formular.$el
+      // console.log({ 'el': el })
+      const target = getScrollTarget(el)
+      const offset = el.offsetTop
+      const duration = 300
+      setScrollPosition(target, offset, duration)
     }
   }
 
