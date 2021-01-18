@@ -335,12 +335,16 @@
         jidelna-section-blog-card(v-for="post in blogPosts" :key="post.id")
           a.invisible-link(:href="post.url" target="_blank")
             // pre {{post}}
-            q-img(:src="post.feature_image" basic)
-              .absolute-bottom.text-h6
-                | {{post.title}}
+            q-img(:src="post.feature_image" basic style="height: 220px;")
             q-card-section
+            span
+            q-icon(name="calendar_today" style="font-size: 18px; color: #B1B1B1;" )
+            span
+              |  {{formatDate(post.published_at)}}
+
+            .relative-bottom.alt-blog-nadpis
+              | {{post.title}}
               //| {{post.excerpt}}
-              | {{post.published_at}}
 
     page-section(ref="formular")
       .row.justify-center.page-section-ourstory
@@ -398,6 +402,11 @@
   margin 0
   padding 0
 
+.alt-blog-nadpis
+  color $primary
+  font-size 23px
+  font-weight bold
+
 .alt-cena
   color $primary
   font-size 26px
@@ -448,10 +457,17 @@ import JidelnaFormular from '../components/Formular'
 import PageSection from 'components/PageSection'
 import PageSectionCard from 'components/PageSectionCard'
 import LayoutFooter from 'layouts/LayoutFooter'
-import { scroll } from 'quasar'
+import { scroll, date } from 'quasar'
 import axios from 'axios'
 
 const { setScrollPosition, getScrollTarget } = scroll
+
+// pokus o pocesteni datumu
+// https://quasar.dev/quasar-utils/date-utils#Manipulate-dates
+// const obj = date.extractDate({
+// months: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec']
+// })
+
 
 export default {
   name: 'PageIndex',
@@ -524,8 +540,12 @@ export default {
       // console.log({ 'el': el })
       const target = getScrollTarget(el)
       const offset = el.offsetTop
-      const duration = 300
+      const duration = 600
       setScrollPosition(target, offset, duration)
+    },
+
+    formatDate (datum) {
+      return date.formatDate(datum, 'DD MMMM, YYYY')
     }
   }
 
