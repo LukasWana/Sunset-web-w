@@ -1,6 +1,5 @@
 <template lang="pug">
   q-page
-
     page-section(:fullWidth="true")
 
       // animace:
@@ -333,34 +332,15 @@
       .cenareseni
         h2.text-center Výběr z blogu
       .flex.justify-center(:class="{'q-gutter-lg': !$q.screen.lt.sm}")
-
-        jidelna-section-blog-card
-          q-img(src='https://blog.altisima.cz/content/images/2021/01/shutterstock_122391511.jpg' basic='')
-            .absolute-bottom.text-h6
-              | Jak šel čas s JídelnouSQL
-          q-card-section
-            | Na počátku byla Jídelna. Program, který nad tabulkami databáze Paradox začal řešit evidenci strávníků,
-            | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
-            | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
-
-        jidelna-section-blog-card
-          q-img(src='https://blog.altisima.cz/content/images/2021/01/shutterstock_122391511.jpg' basic='')
-            .absolute-bottom.text-h6
-              | Jak šel čas s JídelnouSQL
-          q-card-section
-            | Na počátku byla Jídelna. Program, který nad tabulkami databáze Paradox začal řešit evidenci strávníků,
-            | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
-            | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
-
-        jidelna-section-blog-card
-          q-img(src='https://blog.altisima.cz/content/images/2021/01/shutterstock_122391511.jpg' basic='')
-            .absolute-bottom.text-h6
-              | Jak šel čas s JídelnouSQL
-          q-card-section
-            | Na počátku byla Jídelna. Program, který nad tabulkami databáze Paradox začal řešit evidenci strávníků,
-            | objednávek stravy a úhrady za ni. Prográmek to byl velmi jednoduchý, ale v roce 2000 byl moderní a hlavně
-            | skvěle fungoval na tehdy aktuální verzi operačního systému Windows. Postupně nám začali přibývat zákazníci.
-
+        jidelna-section-blog-card(v-for="post in blogPosts" :key="post.id")
+          a.invisible-link(:href="post.url" target="_blank")
+            // pre {{post}}
+            q-img(:src="post.feature_image" basic)
+              .absolute-bottom.text-h6
+                | {{post.title}}
+            q-card-section
+              //| {{post.excerpt}}
+              | {{post.published_at}}
 
     page-section(ref="formular")
       .row.justify-center.page-section-ourstory
@@ -371,6 +351,12 @@
 </template>
 
 <style scoped lang="stylus">
+
+.invisible-link
+  text-decoration none
+  color inherit
+
+
 .cenareseni
   margin 0px 0px 20px 0px
 
@@ -462,8 +448,9 @@ import JidelnaFormular from '../components/Formular'
 import PageSection from 'components/PageSection'
 import PageSectionCard from 'components/PageSectionCard'
 import LayoutFooter from 'layouts/LayoutFooter'
-
 import { scroll } from 'quasar'
+import axios from 'axios'
+
 const { setScrollPosition, getScrollTarget } = scroll
 
 export default {
@@ -486,6 +473,11 @@ export default {
     LayoutFooter,
     PageSectionCard,
     PageSection
+  },
+
+  async beforeMount () {
+    const result = await axios.get('https://blog.altisima.cz/ghost/api/v3/content/posts/?key=48078e4106f7bfb20482486b1e&filter=tag:jidelna-sql&limit=3&order=published_at%20desc&format=html,text')
+    this.blogPosts = result.data.posts
   },
 
   data () {
@@ -515,7 +507,8 @@ export default {
         { src: 'statics/galerie/vyd-ter/2_identifikace.jpg', alt: 'Identifikace', thumbnail: null },
         { src: 'statics/galerie/vyd-ter/3_vydej.jpg', alt: 'Výdej', thumbnail: null },
         { src: 'statics/galerie/vyd-ter/4_TT3511semafor.jpg', alt: 'Semafor na terminálu', thumbnail: null }
-      ]
+      ],
+      blogPosts: []
     }
   },
 
