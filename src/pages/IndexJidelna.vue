@@ -80,7 +80,7 @@
               p
               | Ty mohou být v kartě nebo čipovém přívěsku.
               p
-              | Naše řešení je universální, umožňujeme využití i vlastních karet jako jsou karty ISIC nebo městské karty.
+              | Naše řešení je univerzální, umožňujeme využití i vlastních karet jako jsou karty ISIC nebo městské karty.
 
           template(#second)
             br
@@ -110,9 +110,7 @@
             img(src="~assets/reseni-04.jpg" alt="Chip")
           template(#default)
             div.text-left.ulli
-              | V místě, kde je provozováno stravování, je mnohdy objednávkový kiosek.
-              p
-              | Náš kiosek TT1703 je v provedení antivandal s kvalitním dotykovým displejem krytým sklem.
+              | Pro objednávky stravy v jídelně využijete objednávkový kiosek TT1703, ten je v provedení antivandal s kvalitním dotykovým displejem krytým sklem.
               p
               | Software pro objednávání jídel můžete provozovat i na vlastním hardware.
           template(#second)
@@ -143,9 +141,7 @@
             img(src="~assets/reseni-06.jpg" alt="Chip")
           template(#default)
             div.text-left.ulli
-              | Některé provozy upřednostňují bezobjednávkový provoz stravovacího úseku.
-              p
-              | Těm nabízíme modul Pokladna využitelný v závodních restauracích nebo při prodeji doplňkového sortimentu.
+              | Pokladní prodej doplňkového sortimentu nebo bezobjednávkový provoz stravovacího úseku zajistí modul Pokladna.
               p
               | Samozřejmostí je napojení na EET a přehledné kontrolní sestavy.
           template(#second)
@@ -176,14 +172,14 @@
             img(src="~assets/Jidelna-icon.svg" alt="Icona" height="36px")
           template(#title) Nastavení cen
           template
-            | Jídelníček umožňuje vyhledávání v recepturách, je možné ho ukládat nebo kopírovat. Zobrazuje se včetně alergenů.
+            | Cena jídla, služeb nebo doplňkového sortimentu je evidovaná v ceníku. Ten umožňuje další nastavení podle potřeb provozu.
 
         page-section-card
           template(#icon)
             img(src="~assets/Jidelna-icon.svg" alt="Icona" height="36px")
           template(#title) Zadávání jídelníčku
           template
-            | Můžete evidovat libovolné množství skladů, které konfigurujete a nastavíte podle potřeb.
+            | Jídelníček umožňuje vyhledávání v recepturách, je možné ho ukládat nebo kopírovat. Zobrazuje se včetně alergenů.
 
         page-section-card
           template(#icon)
