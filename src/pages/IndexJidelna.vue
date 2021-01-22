@@ -356,7 +356,6 @@
   text-decoration none
   color inherit
 
-
 .cenareseni
   margin 0px 0px 20px 0px
 
@@ -426,7 +425,7 @@ h3
   marging 20px
 
 ul
-  //list-style-image: url('~assets/app-icon.png')
+  // list-style-image: url('~assets/app-icon.png')
   // list-style-image: url('~assets/odrazka.svg')
   list-style-type disc !important
   line-height 18px
@@ -526,7 +525,7 @@ export default {
 
   methods: {
     login () {
-      window.location.href = 'https://gekon.altisima.cz'
+      window.location.href = 'https://jidelna-sql.altisima.cz'
     },
 
     scrollToObjednat () {
