@@ -334,7 +334,7 @@
             q-img(:src="post.feature_image" basic style="height: 220px;")
             q-card-section
             span
-            q-icon(name="date_range" style="font-size: 18px; color: #BBBBBB;" )
+            q-icon(name="date_range" style="font-size: 18px; color: #BBBBBB;")
             span
               |  {{formatDate(post.published_at)}}
 
