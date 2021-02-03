@@ -328,10 +328,10 @@
       .cenareseni
         h2.text-center Výběr z blogu
       .flex.justify-center(:class="{'q-gutter-lg': !$q.screen.lt.sm}")
-        jidelna-section-blog-card(v-for="post in blogPosts" :key="post.id")
+        jidelna-section-blog-card(v-for="post in blogPosts" :key="post.id" style="width: 350px;")
           a.invisible-link(:href="post.url" target="_blank")
             // pre {{post}}
-            q-img(:src="post.feature_image" basic style="height: 220px;")
+            q-img(:src="post.feature_image" basic style="height: 200px;")
             q-card-section
             span
             q-icon(name="date_range" style="font-size: 18px; color: #BBBBBB;")
