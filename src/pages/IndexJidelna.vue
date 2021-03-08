@@ -16,6 +16,15 @@ import axios from 'axios'
 
 const { setScrollPosition, getScrollTarget } = scroll
 
+function formatDate (datum, format) {
+  return date.formatDate(datum, format, {
+    months: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+    monthsShort: ['led', 'ún', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+    days: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+    daysShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so']
+  })
+}
+
 // pokus o pocesteni datumu
 // https://quasar.dev/quasar-utils/date-utils#Manipulate-dates
 // const obj = date.extractDate({
@@ -99,7 +108,7 @@ export default {
     },
 
     formatDate (datum) {
-      return date.formatDate(datum, 'DD MMMM, YYYY')
+      return formatDate(datum, 'DD MMMM, YYYY')
     }
   }
 
