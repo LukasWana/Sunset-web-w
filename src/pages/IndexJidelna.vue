@@ -25,13 +25,6 @@ function formatDate (datum, format) {
   })
 }
 
-// pokus o pocesteni datumu
-// https://quasar.dev/quasar-utils/date-utils#Manipulate-dates
-// const obj = date.extractDate({
-// months: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec']
-// })
-
-
 export default {
   name: 'PageIndex',
 
