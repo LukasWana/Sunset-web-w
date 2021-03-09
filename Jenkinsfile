@@ -32,7 +32,7 @@ pipeline {
       steps {
         sh 'sudo rm -rf /altisima/public-quasar-webs/jidelna-sql-web-production/*'
         sh 'cp -R dist/ssr/* /altisima/public-quasar-webs/jidelna-sql-web-production'
-        sh 'cd /altisima/public-quasar-webs/jidelna-sql-web-production && yarn'
+        sh 'cd /altisima/public-quasar-webs/jidelna-sql-web-production && yarn --registry https://jasir.bytesafe.dev/r/ent/'
       }
     }
     stage('Stage deploy SPA to /altisima/public-apache-webs/jidelnasql-web-staging') {
