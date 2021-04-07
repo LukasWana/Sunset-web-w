@@ -429,7 +429,7 @@ export default {
               q-tab(name='jidelnasql' label='JídelnaSQL')
               q-tab(name='objednavkovyterminal' label='Objednávkový terminál')
               q-tab(name='vydejniterminal' label='Výdejní terminál')
-              q-tab(name='zolik' label='Žolík')
+              q-tab(name='zolik' label='Tisk stravenek')
             q-separator
             q-tab-panels(v-model='tab' animated='')
               q-tab-panel(name='internetoveobj')
