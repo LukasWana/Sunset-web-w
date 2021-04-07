@@ -80,6 +80,12 @@ export default {
         { src: 'statics/galerie/vyd-ter/3_vydej.jpg', alt: 'Výdej', thumbnail: null },
         { src: 'statics/galerie/vyd-ter/4_TT3511semafor.jpg', alt: 'Semafor na terminálu', thumbnail: null }
       ],
+      imagesZolik: [
+        { src: 'statics/galerie/zolik/zolik-config.jpg', alt: 'Žolík konfigurace', thumbnail: null },
+        { src: 'statics/galerie/zolik/zolik-menu.jpg', alt: 'Žolík nabídka', thumbnail: null },
+        { src: 'statics/galerie/zolik/zolik-open.jpg', alt: 'Žolík výměna papíru', thumbnail: null },
+        { src: 'statics/galerie/zolik/zolik-print.jpg', alt: 'Žolík tisk', thumbnail: null }
+      ],
       blogPosts: []
     }
   },
@@ -423,6 +429,7 @@ export default {
               q-tab(name='jidelnasql' label='JídelnaSQL')
               q-tab(name='objednavkovyterminal' label='Objednávkový terminál')
               q-tab(name='vydejniterminal' label='Výdejní terminál')
+              q-tab(name='zolik' label='Žolík')
             q-separator
             q-tab-panels(v-model='tab' animated='')
               q-tab-panel(name='internetoveobj')
@@ -433,6 +440,8 @@ export default {
                 jidelna-gallery(:images="imagesObjednavkovy")
               q-tab-panel(name='vydejniterminal')
                 jidelna-gallery(:images="imagesVydej")
+              q-tab-panel(name='zolik')
+                jidelna-gallery(:images="imagesZolik")
 
     page-section
       .cenareseni
