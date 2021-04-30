@@ -12,7 +12,6 @@ import PageSection from 'components/PageSection'
 import PageSectionCard from 'components/PageSectionCard'
 import LayoutFooter from 'layouts/LayoutFooter'
 import { scroll, date } from 'quasar'
-import axios from 'axios'
 
 const { setScrollPosition, getScrollTarget } = scroll
 
@@ -45,11 +44,6 @@ export default {
     LayoutFooter,
     PageSectionCard,
     PageSection
-  },
-
-  async beforeMount () {
-    const result = await axios.get('https://blog.altisima.cz/ghost/api/v3/content/posts/?key=48078e4106f7bfb20482486b1e&filter=tag:jidelna-sql&limit=3&order=published_at%20desc&format=html,text')
-    this.blogPosts = result.data.posts
   },
 
   data () {
@@ -118,46 +112,32 @@ export default {
   q-page
     page-section(:fullWidth="true")
 
-      // animace:
-      // transition-prev="slide-left"
-      // transition-next="slide-right"
+    q-carousel.top-carousel(
+      autoplay swipeable animated v-model="slide"
+      arrows navigation infinite height="500px"
+      transition-next="jump-left" transition-prev="jump-right").no-alt-scroll
 
-      q-carousel.top-carousel(
-        autoplay
-        swipeable
-        animated
-        v-model="slide"
-        arrows
-        navigation
-        infinite
-        height="550px"
-        transition-next="jump-left"
-        transition-prev="jump-right"
-      ).no-alt-scroll
+      q-carousel-slide(name="1" img-src="~assets/carusel-sunset-apartment-01.jpg")
+        carousel-content
+          template(#title) Luxusní
+          template(#description) apartmán v&nbsp;první řadě
 
-        q-carousel-slide(name="1" img-src="~assets/carusel-jidelnasql-001.jpg")
-          carousel-content
-            template(#semi-title) Jednoduchá
-            template(#title) Evidence strávníků
-            template(#description) Zjednodušíme evidenci vašich strávníků, objednávek stravy a plateb.
+      q-carousel-slide(name="2" img-src="~assets/carusel-sunset-apartment-02.jpg")
+        carousel-content
+          template(#title) S&nbsp;přímým
+          template(#description) výhledem na moře z 1. patra
 
-        q-carousel-slide(name="2" img-src="~assets/carusel-jidelnasql-002.jpg")
-          carousel-content
-            template(#semi-title) Univerzální
-            template(#title) Stravovací systém
-            template(#description) Zajistíme objednávku i výdej jídel pro každý typ provozu.
+      q-carousel-slide(name="3" img-src="~assets/carusel-sunset-apartment-03.jpg")
+        carousel-content
+          template(#title) Krásné
+          template(#description) a křišťálově čisté moře <br> s nádhernými plážemi
 
-        q-carousel-slide(name="3" img-src="~assets/carusel-jidelnasql-003.jpg")
-          carousel-content
-            template(#semi-title) Moderní
-            template(#title) Konstrukce programu
-            template(#description) Využíváme moderní technologie se zaměření na bezpečnost a stabilitu.
+      q-carousel-slide(name="4" img-src="~assets/carusel-sunset-apartment-04.jpg")
+        carousel-content
+          template(#title) Ostrov Pag
+          template(#description) nejjižnější ostrov z vnitřního pásu <br> Kvarnerského souostroví
 
-        q-carousel-slide(name="4" img-src="~assets/carusel-jidelnasql-004.jpg")
-          carousel-content
-            template(#semi-title) Komplexní
-            template(#title) Řešení stravování
-            template(#description) Využijeme naše zkušenosti při návrhu řešení podle vašich potřeb.
+
 
     page-section.section-nadpis.text-center
       .row.justify-center.page-section-ourstory
@@ -442,30 +422,6 @@ export default {
                 jidelna-gallery(:images="imagesVydej")
               q-tab-panel(name='zolik')
                 jidelna-gallery(:images="imagesZolik")
-
-    page-section
-      .cenareseni
-        h2.text-center Výběr z blogu
-      .flex.justify-center(:class="{'q-gutter-lg': !$q.screen.lt.sm}")
-        jidelna-section-blog-card(v-for="post in blogPosts" :key="post.id" style="width: 350px;")
-          a.invisible-link(:href="post.url" target="_blank")
-            // pre {{post}}
-            q-img(:src="post.feature_image" basic style="height: 200px;")
-            q-card-section
-            span
-            q-icon(name="date_range" style="font-size: 18px; color: #BBBBBB;")
-            span
-              |  {{formatDate(post.published_at)}}
-
-            .relative-bottom.alt-blog-nadpis
-              | {{post.title}}
-              //| {{post.excerpt}}
-
-    page-section(ref="formular")
-      .row.justify-center.page-section-ourstory
-        .col-xs-12.col-sm-8.col-md-6.q-px-md
-          h2.text-center Kontaktujte nás
-          jidelna-formular
 
     page-section.section-nadpis.text-center
       .row.justify-center.page-section-ourstory
