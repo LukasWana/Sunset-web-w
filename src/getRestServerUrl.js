@@ -1,3 +1,3 @@
 export function getRestServerUrl () {
-  return window.localStorage.getItem('restServerUrl') || 'https://devel.altisima.cz'
+  return window.localStorage.getItem('restServerUrl') || 'https://sunset-apartment.com'
 }
