@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Build - Yarn install') {
       steps {
-        sh 'yarn install --registry https://jasir.bytesafe.dev/r/ent/'
+        sh 'yarn install --ignore-engines --registry https://jasir.bytesafe.dev/r/ent/'
       }
     }
     stage('Build SSR') {
